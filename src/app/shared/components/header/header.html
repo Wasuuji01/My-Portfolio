@@ -1,6 +1,7 @@
 <header class="header">
+  
   <div class="header__brand">
-  <img src="assets/logo.jpg" alt="Waseem Logo" class="header__logo" />
+    <img src="assets/logo.jpg" alt="Waseem Logo" class="header__logo" />
     <h1 class="header__title">
       <span class="text-dark">Mohd </span>
       <span class="text-teal">Wa</span><span class="text-red">seem</span>
@@ -13,8 +14,30 @@
       <li class="header__nav-item"><a href="#about">About</a></li>
       <li class="header__nav-item"><a href="#skills">Skills</a></li>
       <li class="header__nav-item"><a href="#projects">Projects</a></li>
-      <li class="header__nav-item"><a href="#education">Education</a></li>
       <li class="header__nav-item"><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <button class="header__menu-btn" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+  
 </header>
+
+<div class="mobile-overlay" *ngIf="menuOpen" (click)="toggleMenu()"></div>
+
+<div class="mobile-drawer" [class.open]="menuOpen">
+  
+  <button class="mobile-drawer__close-btn" (click)="toggleMenu()">
+    <i class="fas fa-times"></i>
+  </button>
+  
+  <ul class="mobile-drawer__list">
+    <li class="mobile-drawer__item"><a href="#home" (click)="toggleMenu()">Home</a></li>
+    <li class="mobile-drawer__item"><a href="#about" (click)="toggleMenu()">About</a></li>
+    <li class="mobile-drawer__item"><a href="#skills" (click)="toggleMenu()">Skills</a></li>
+    <li class="mobile-drawer__item"><a href="#projects" (click)="toggleMenu()">Projects</a></li>
+    <li class="mobile-drawer__item"><a href="#contact" (click)="toggleMenu()">Contact</a></li>
+  </ul>
+
+</div>

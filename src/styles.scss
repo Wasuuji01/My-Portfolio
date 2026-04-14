@@ -7,11 +7,112 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #F8F9FC;
-  color: #1F2937;
+  background-color: #f8f9fc;
+  color: #1f2937;
   overflow-x: hidden;
 }
 
 .main-content {
   min-height: 80vh;
+}
+
+/* =========================================
+   📱 MASTER RESPONSIVE CODE (MOBILE & TABLET)
+   ========================================= */
+
+@media screen and (max-width: 992px) {
+  /* 1. Page ko screen se bahar jaane se rokein */
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+
+  /* 2. Global Section Paddings */
+  section {
+    padding: 3rem 5% !important;
+  }
+
+  /* 3. Header Fix (Logo upar, links uske neeche) */
+  .header {
+    flex-direction: column !important;
+    padding: 1rem 5% !important;
+    gap: 15px !important;
+    height: auto !important;
+  }
+  .header__nav-list {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+  /* 4. Home / Hero Section Fix (Image upar, text neeche) */
+  .hero-container,
+  .hero-section {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    gap: 2.5rem !important;
+  }
+  .hero__actions {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* 5. Convert all Layouts to Single Column */
+  .contact-container,
+  .about-container,
+  .skills-container,
+  .projects-grid,
+  .education-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  /* Agar aapne grid use kiya tha toh usko bhi 1 column karein */
+  .grid,
+  .grid-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 6. Text Size Adjustment for Mobile */
+  h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+  h2.section-title {
+    font-size: 1.8rem !important;
+  }
+  p {
+    font-size: 0.95rem !important;
+  }
+
+  /* 7. Image Overflow Fix */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 8. Contact Form Fix */
+  .contact-form-wrapper,
+  .contact-info {
+    width: 100% !important;
+    padding: 1.5rem !important;
+  }
+}
+
+/* =========================================
+   📱 EXTRA SMALL SCREENS (Phones under 480px)
+   ========================================= */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  .header__nav-item a {
+    font-size: 0.85rem !important;
+  }
+  .btn {
+    width: 100% !important;
+    justify-content: center;
+  }
 }

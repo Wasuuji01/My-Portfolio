@@ -1,62 +1,157 @@
+$color-teal: #378e8e;
+$color-red: #c43b4d;
+$color-dark: #1f2937;
+$color-bg: #ffffff;
+
+/* ==================================
+   🖥️ DESKTOP HEADER STYLES
+   ================================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 5%;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft bottom shadow */
-  position: sticky;
+  padding: 1rem 5%;
+  background-color: $color-bg;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  font-family: 'Poppins', sans-serif;
 
   &__brand {
     display: flex;
     align-items: center;
     gap: 12px;
-    cursor: pointer;
   }
 
   &__logo {
-    width: 45px;
-    height: 45px;
-    border-radius: 8px; /* Slightly rounded edges as seen in image */
-    object-fit: cover;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%; /* Agar logo gol karna h toh */
   }
 
   &__title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    letter-spacing: 0.5px;
-
-    /* Exact Color Matching */
-    .text-dark { color: #161B2A; } /* Dark Blue/Black */
-    .text-teal { color: #378E8E; } /* Teal Green */
-    .text-red  { color: #C43B4D; } /* Crimson Red */
+    .text-dark {
+      color: $color-dark;
+    }
+    .text-teal {
+      color: $color-teal;
+    }
+    .text-red {
+      color: $color-red;
+    }
   }
 
-  &__nav {
-    &-list {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      gap: 2.5rem; /* Spacing between links */
+  &__nav-list {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__nav-item a {
+    text-decoration: none;
+    color: $color-dark;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-teal;
     }
+  }
 
-    &-item {
-      a {
-        text-decoration: none;
-        color: #334155; /* Slate grayish-blue text */
-        font-weight: 600;
-        font-size: 1.05rem;
-        transition: color 0.3s ease;
+  &__menu-btn {
+    display: none; /* Desktop par hide rahega */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: $color-dark;
+    cursor: pointer;
+  }
+}
 
-        &:hover, &.active {
-          color: #378E8E; /* Active/Hover state matching the 'Wa' text color */
-        }
-      }
+/* ==================================
+   📱 MOBILE DRAWER STYLES
+   ================================== */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Shuru me screen ke bahar chhipa rahega */
+  width: 280px;
+  height: 100vh;
+  background-color: $color-bg;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  z-index: 1002;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  /* Jab 'open' class aayegi toh slide andar hoga */
+  &.open {
+    right: 0;
+  }
+
+  &__close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: $color-red;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__item a {
+    text-decoration: none;
+    color: $color-dark;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px); /* Halka blur effect */
+  z-index: 1001;
+}
+
+/* ==================================
+   🔄 RESPONSIVE BREAKPOINT (Tablet/Mobile)
+   ================================== */
+@media screen and (max-width: 992px) {
+  .header {
+    /* Ye purane column layout ko override karke ek seedhi line (row) me set karega */
+    flex-direction: row !important;
+    justify-content: space-between !important; /* Logo left me, Button right me */
+    align-items: center !important;
+    padding: 1rem 5% !important;
+
+    &__nav {
+      display: none !important;
+    }
+    &__menu-btn {
+      display: block !important;
     }
   }
 }
