@@ -1,0 +1,46 @@
+<section class="projects-section">
+  <div class="section-header">
+    <h2 class="section-title">My Projects</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="projects-grid">
+    
+    <div class="project-card" *ngFor="let project of projects">
+      
+      <div class="project-card__visual">
+        <div class="big-icon">{{ project.topIcon }}</div>
+      </div>
+
+      <div class="project-card__content">
+        
+        <div class="project-title-area">
+          <span class="small-icon">{{ project.titleIcon }}</span>
+          <h3 class="project-title">{{ project.title }}</h3>
+        </div>
+
+        <p class="project-description">{{ project.description }}</p>
+
+        <div class="tech-stack">
+          <span class="tech-pill" *ngFor="let tech of project.techStack">
+            {{ tech }}
+          </span>
+        </div>
+
+        <div class="project-footer">
+          <span class="status-icon">{{ project.statusIcon }}</span>
+          <span class="status-text">{{ project.statusText }}</span>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <div class="projects-action">
+    <a class="btn-primary" href="#contact">
+      <span class="btn-icon">✉️</span> Request More Project Details
+    </a>
+  </div>
+
+</section>

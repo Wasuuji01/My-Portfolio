@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F8F9FC;
+  color: #1F2937;
+  overflow-x: hidden;
+}
+
+.main-content {
+  min-height: 80vh;
+}

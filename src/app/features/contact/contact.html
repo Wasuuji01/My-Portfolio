@@ -1,0 +1,138 @@
+<section class="contact-section">
+  <div class="section-header">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3 class="info-heading">
+        Let's Build <span class="text-teal">Something </span
+        ><span class="text-red">Amazing</span> Together
+      </h3>
+
+      <p class="info-desc">
+        I am always open to discussing new projects, creative ideas, or opportunities to be part of
+        your vision. Whether you have a specific requirement or just want to say hi, feel free to
+        reach out!
+      </p>
+
+      <div class="contact-details">
+        <div class="detail-item">
+          <div class="icon-box icon-box--gradient">✉️</div>
+          <div class="text-group">
+            <span class="label">Email</span>
+            <span class="value">wmohd2514&#64;gmail.com</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="icon-box icon-box--gradient">📞</div>
+          <div class="text-group">
+            <span class="label">Phone</span>
+            <span class="value">+91 8954697879</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="icon-box icon-box--gradient">📍</div>
+          <div class="text-group">
+            <span class="label">Location</span>
+            <span class="value">Amroha, Uttar Pradesh</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-section">
+        <h4 class="social-title">Connect With Me</h4>
+        <div class="social-icons">
+
+          <a href="https://www.linkedin.com/in/mohd-waseem-4161a1258" target="_blank" class="social-btn" style="text-decoration: none">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a href="https://github.com/Wasuuji01/" target="_blank" class="social-btn" style="text-decoration: none">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="https://www.facebook.com/1BnSVnujWU/" target="_blank" class="social-btn" style="text-decoration: none">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/wasuu.writes01" target="_blank" class="social-btn" style="text-decoration: none">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <h3 class="form-title">Send Me a Message</h3>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            formControlName="fullName"
+            placeholder="Enter your name"
+            class="form-control"
+          />
+          <small
+            class="error-text"
+            *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid"
+            >Name is required</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            class="form-control"
+          />
+          <small
+            class="error-text"
+            *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+            >Valid email is required</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            formControlName="subject"
+            placeholder="Project discussion, Job opportunity, etc."
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            formControlName="message"
+            rows="5"
+            placeholder="Tell me about your project or inquiry"
+            class="form-control"
+          ></textarea>
+          <small
+            class="error-text"
+            *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"
+            >Message is required</small
+          >
+        </div>
+
+        <button type="submit" class="btn-submit" [disabled]="contactForm.invalid || isLoading">
+          <span class="btn-icon">✈️</span> {{ isLoading ? 'Sending...' : 'Send Message' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

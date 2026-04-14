@@ -1,0 +1,190 @@
+$color-teal: #378E8E;
+$color-red: #C43B4D;
+$color-dark: #1F2937;
+$color-text: #4B5563;
+$color-blue: #3B82F6; // For subtitles like "Graduated in 2025"
+$color-bg-light: #F8F9FC;
+
+.education-section {
+  padding: 4rem 5%;
+  font-family: 'Poppins', sans-serif;
+  background-color: $color-bg-light;
+  min-height: 100vh;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 5rem;
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: $color-dark;
+    margin: 0 0 10px 0;
+  }
+
+  .underline {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, $color-teal, $color-red);
+    border-radius: 2px;
+  }
+}
+
+/* --- Timeline Core Structure --- */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  /* The Central Line */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(to bottom, $color-teal 0%, $color-red 100%);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    border-radius: 5px;
+  }
+}
+
+/* Timeline Item Container */
+.timeline__item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+
+  /* The Timeline Dots */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, $color-teal, $color-red);
+    border: 4px solid $color-bg-light;
+    border-radius: 50%;
+    top: 25px;
+    z-index: 1;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05); // Subtle outer ring
+  }
+}
+
+/* Left Side Items */
+.left-side {
+  left: 0;
+
+  &::after {
+    right: -10px; /* Position dot on the right edge of left container */
+  }
+
+  .card-header {
+    flex-direction: row-reverse; /* Icon on the right for left items */
+    text-align: right;
+  }
+}
+
+/* Right Side Items */
+.right-side {
+  left: 50%;
+
+  &::after {
+    left: -10px; /* Position dot on the left edge of right container */
+  }
+
+  .card-header {
+    text-align: left; /* Icon on the left (default flex) for right items */
+  }
+}
+
+/* --- Card Styling --- */
+.timeline__content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .text-area {
+    .title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $color-dark;
+      margin: 0 0 5px 0;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $color-blue;
+    }
+  }
+
+  .icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: #475569; /* Slate dark background for icon */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    .icon {
+      font-size: 1.2rem;
+      color: white;
+    }
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $color-text;
+    margin: 0;
+  }
+}
+
+/* --- Mobile Responsiveness --- */
+@media screen and (max-width: 768px) {
+  .timeline {
+    &::after {
+      left: 31px; /* Move central line to the left */
+    }
+  }
+  
+  .timeline__item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+
+    /* Force all items to behave like right-side items */
+    &.left-side, &.right-side {
+      left: 0;
+      
+      &::after {
+        left: 21px; /* Align all dots to the left line */
+      }
+
+      .card-header {
+        flex-direction: row; /* Reset layout to icon-left, text-right */
+        text-align: left;
+      }
+    }
+  }
+}

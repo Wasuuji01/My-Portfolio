@@ -1,0 +1,33 @@
+<section class="education-section">
+  <div class="section-header">
+    <h2 class="section-title">Education & Certification</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="timeline">
+    
+    <div 
+      class="timeline__item" 
+      *ngFor="let item of timelineData; let i = index; let isEven = even"
+      [ngClass]="{'left-side': isEven, 'right-side': !isEven}">
+      
+      <div class="timeline__content">
+        
+        <div class="card-header">
+          <div class="text-area">
+            <h3 class="title">{{ item.title }}</h3>
+            <span class="subtitle">{{ item.subtitle }}</span>
+          </div>
+          
+          <div class="icon-box">
+            <span class="icon">{{ item.icon }}</span>
+          </div>
+        </div>
+
+        <p class="description">{{ item.description }}</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

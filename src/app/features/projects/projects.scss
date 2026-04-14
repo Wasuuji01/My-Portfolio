@@ -1,0 +1,173 @@
+$color-teal: #378E8E;
+$color-red: #C43B4D;
+$color-dark: #1F2937;
+$color-text: #4B5563;
+$color-bg-light: #ffffff;
+$pill-bg: #E0E7FF; /* Light blueish tint */
+$pill-text: #4338CA;
+
+.projects-section {
+  padding: 4rem 5%;
+  font-family: 'Poppins', sans-serif;
+  background-color: $color-bg-light;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 3.5rem;
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: $color-dark;
+    margin: 0 0 10px 0;
+  }
+
+  .underline {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, $color-teal, $color-red);
+    border-radius: 2px;
+  }
+}
+
+/* Projects Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Individual Project Card */
+.project-card {
+  background-color: #F8F9FC; /* Very subtle gray/blue tint for card background */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  &__visual {
+    height: 180px;
+    background: linear-gradient(135deg, #298A8A 0%, #DF4759 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .big-icon {
+      font-size: 4.5rem;
+      color: white;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    }
+  }
+
+  &__content {
+    padding: 2rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.project-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+
+  .small-icon {
+    font-size: 1.5rem;
+  }
+
+  .project-title {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $color-dark;
+  }
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: $color-text;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes the footer to the bottom evenly */
+}
+
+/* Tech Stack Pills */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+
+  .tech-pill {
+    background-color: $pill-bg;
+    color: $pill-text;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+}
+
+/* Card Footer */
+.project-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #E5E7EB;
+  padding-top: 1.2rem;
+  
+  .status-icon {
+    font-size: 1.1rem;
+    color: #6B7280;
+  }
+
+  .status-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #6B7280;
+  }
+}
+
+/* Call to Action Button Area */
+.projects-action {
+  text-align: center;
+  margin-top: 2rem;
+
+  .btn-primary {
+    background: linear-gradient(90deg, $color-teal 0%, $color-red 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-icon {
+      font-size: 1.2rem;
+    }
+  }
+}

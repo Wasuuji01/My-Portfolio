@@ -1,0 +1,237 @@
+$color-teal: #378E8E;
+$color-red: #C43B4D;
+$color-dark: #1F2937;
+$color-text: #4B5563;
+$color-bg-light: #F8F9FC;
+$border-color: #E5E7EB;
+
+.contact-section {
+  padding: 4rem 5%;
+  font-family: 'Poppins', sans-serif;
+  background-color: $color-bg-light;
+  min-height: calc(100vh - 70px); // Adjust based on header height
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 3.5rem;
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: $color-dark;
+    margin: 0 0 10px 0;
+  }
+
+  .underline {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, $color-teal, $color-red);
+    border-radius: 2px;
+  }
+}
+
+/* Layout Container */
+.contact-container {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
+}
+
+/* --- Left Column: Contact Info --- */
+.contact-info {
+  flex: 1;
+
+  .info-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $color-dark;
+    margin-bottom: 1.5rem;
+
+    .text-teal { color: $color-teal; }
+    .text-red { color: $color-red; }
+  }
+
+  .info-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $color-text;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+
+    &--gradient {
+      background: linear-gradient(135deg, $color-teal, $color-red);
+    }
+  }
+
+  .text-group {
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $color-dark;
+    }
+
+    .value {
+      font-size: 0.95rem;
+      color: $color-text;
+    }
+  }
+}
+
+.social-section {
+  .social-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $color-dark;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, $color-teal, $color-red);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+/* --- Right Column: Form --- */
+.contact-form-wrapper {
+  flex: 1.2;
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  width: 100%;
+
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-dark;
+    margin-bottom: 2rem;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $color-dark;
+    }
+
+    .form-control {
+      padding: 0.8rem 1rem;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: $color-text;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffffff;
+
+      &::placeholder {
+        color: #9CA3AF;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $color-teal;
+        box-shadow: 0 0 0 3px rgba(55, 142, 142, 0.1);
+      }
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .error-text {
+      color: #DC2626;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+  }
+
+  .btn-submit {
+    background: linear-gradient(90deg, $color-teal 0%, $color-red 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

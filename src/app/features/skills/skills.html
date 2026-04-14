@@ -1,0 +1,60 @@
+<section class="skills-section">
+  <div class="section-header">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="skills-container">
+    
+    <div class="skill-category">
+      <div class="category-header">
+        <div class="icon-box icon-box--gradient">
+          <span class="icon">🗄️</span> </div>
+        <h3>Backend & Database</h3>
+      </div>
+      
+      <div class="skill-list">
+        <div class="skill-item" *ngFor="let skill of backendSkills">
+          <div class="skill-info">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-percent">{{ skill.progress }}%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" [style.width.%]="skill.progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="category-header">
+        <div class="icon-box icon-box--gradient">
+          <span class="icon">💻</span>
+        </div>
+        <h3>Frontend Technologies</h3>
+      </div>
+      
+      <div class="skill-list">
+        <div class="skill-item" *ngFor="let skill of frontendSkills">
+          <div class="skill-info">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-percent">{{ skill.progress }}%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" [style.width.%]="skill.progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="additional-expertise">
+    <h3 class="additional-title">Additional Expertise</h3>
+    <div class="pills-container">
+      <span class="expertise-pill" *ngFor="let item of additionalSkills">
+        {{ item }}
+      </span>
+    </div>
+  </div>
+</section>

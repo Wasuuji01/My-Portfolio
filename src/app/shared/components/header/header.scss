@@ -1,0 +1,62 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 5%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft bottom shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  &__logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px; /* Slightly rounded edges as seen in image */
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.5px;
+
+    /* Exact Color Matching */
+    .text-dark { color: #161B2A; } /* Dark Blue/Black */
+    .text-teal { color: #378E8E; } /* Teal Green */
+    .text-red  { color: #C43B4D; } /* Crimson Red */
+  }
+
+  &__nav {
+    &-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 2.5rem; /* Spacing between links */
+    }
+
+    &-item {
+      a {
+        text-decoration: none;
+        color: #334155; /* Slate grayish-blue text */
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: color 0.3s ease;
+
+        &:hover, &.active {
+          color: #378E8E; /* Active/Hover state matching the 'Wa' text color */
+        }
+      }
+    }
+  }
+}

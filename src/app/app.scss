@@ -1,0 +1,11 @@
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8F9FC; /* Page ka main background color */
+  overflow-x: hidden; /* Horizontal scrollbar ko rokne ke liye */
+}
+
+/* Smooth Scrolling effect for anchor links */
+:host {
+  display: block;
+}

@@ -1,0 +1,158 @@
+$color-teal: #378e8e;
+$color-red: #c43b4d;
+$color-dark: #1f2937;
+$color-text: #4b5563;
+$color-bg-light: #f8f9fc;
+$color-bar-bg: #e5e7eb;
+
+.skills-section {
+  padding: 4rem 5%;
+  font-family: 'Poppins', sans-serif;
+  background-color: $color-bg-light;
+  min-height: 100vh;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 4rem;
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: $color-dark;
+    margin: 0 0 10px 0;
+  }
+
+  .underline {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, $color-teal, $color-red);
+    border-radius: 2px;
+  }
+}
+
+/* Skills Grid Layout */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 4rem;
+  margin-bottom: 5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Category Header (Icon + Title) */
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-dark;
+    margin: 0;
+  }
+
+  .icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+
+    &--gradient {
+      background: linear-gradient(135deg, $color-red, $color-teal);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+/* Progress Bars */
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  .skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    .skill-name {
+      font-weight: 600;
+      color: $color-dark;
+      font-size: 0.95rem;
+    }
+
+    .skill-percent {
+      font-weight: 700;
+      color: $color-text;
+      font-size: 0.85rem;
+    }
+  }
+
+  .progress-bar-bg {
+    width: 100%;
+    height: 10px;
+    background-color: $color-bar-bg;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $color-teal, $color-red);
+    border-radius: 10px;
+    /* Basic animation on load */
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* Additional Expertise Section */
+.additional-expertise {
+  text-align: center;
+
+  .additional-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-dark;
+    margin-bottom: 2rem;
+  }
+
+  .pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .expertise-pill {
+    background: linear-gradient(135deg, #a047df42 0%, #298a8a42 100%);
+    color: $color-dark;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 12px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    border: 1px solid #f3f4f6;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      color: $color-teal;
+    }
+  }
+}
