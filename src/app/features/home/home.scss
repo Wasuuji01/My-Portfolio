@@ -214,3 +214,54 @@ $color-text-muted: #4B5563;
     }
   }
 }
+
+/* ==================================
+   📱 HOME PAGE MOBILE FIX
+   ================================== */
+@media screen and (max-width: 992px) {
+  /* 1. Height ko flexible banayein taaki content cut na ho */
+  .hero-section, 
+  :host {
+    height: auto !important;
+    min-height: 100vh;
+    padding-top: 120px !important; /* Header ke liye upar space chhodna */
+    padding-bottom: 60px !important;
+    overflow: visible !important;
+  }
+
+  /* 2. Layout ko perfect column me set karein */
+  .hero-container {
+    flex-direction: column-reverse !important; /* Image upar, text neeche */
+    gap: 2rem !important;
+    text-align: center;
+    padding: 0 15px; /* Side se thoda gap */
+  }
+
+  /* 3. Text ko mobile screen ke andar fit rakhein */
+  h1, .hero__title {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important; /* Text overlap na ho */
+    word-wrap: break-word; /* Bada word ho toh toot kar neeche aa jaye */
+    margin-bottom: 15px;
+  }
+
+  p, .hero__desc {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    padding: 0 10px; /* Paragraph ko side se chipakne se rokein */
+  }
+
+  /* 4. Image aur Buttons ko fix karein */
+  .hero__image-wrapper img {
+    max-width: 90% !important; /* Image screen se bahar na jaye */
+    height: auto !important;
+    margin: 0 auto;
+  }
+
+  .hero__actions {
+    justify-content: center !important;
+    flex-wrap: wrap; /* Agar buttons fit na hon toh neeche aa jayen */
+    gap: 15px;
+    margin-top: 20px;
+  }
+}
